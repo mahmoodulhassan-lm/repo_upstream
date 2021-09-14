@@ -1,9 +1,7 @@
 # .github/workflows/example.yml
 
 name: Merge upstream branches
-on:
-  push:
-    branches: [ master ]
+on: [push]
 jobs:
   merge:
     runs-on: ubuntu-latest
