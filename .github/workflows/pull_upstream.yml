@@ -2,10 +2,8 @@
 
 name: Merge upstream branches
 on:
-  schedule:
-     # actually, ~5 minutes is the highest
-     # effective frequency you will get
-     - cron:  '* * * * *'
+  push:
+    branches: [ master ]
 jobs:
   merge:
     runs-on: ubuntu-latest
