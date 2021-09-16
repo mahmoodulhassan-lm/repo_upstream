@@ -21,11 +21,12 @@ jobs:
           git fetch upstream
 
           git merge --no-edit upstream/master
-          # git pull --no-edit origin from_upstream 2>/dev/null
+          git pull --no-edit origin from_upstream 2>/dev/null
           git push --set-upstream origin from_upstream
           git checkout master
       - name: pull-request-action
-        uses: peter-evans/create-pull-request@v3
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          branch: "from_upstream"
+        uses: vsoch/pull-request-action@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          BRANCH_PREFIX: "from_upstream"
+          PULL_REQUEST_BRANCH: "master"
