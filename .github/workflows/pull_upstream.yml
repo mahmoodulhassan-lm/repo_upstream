@@ -24,6 +24,11 @@ jobs:
           git merge --no-edit upstream/master
           git push --set-upstream origin from_upstream
           git checkout master
+  auto-pull-request:
+    needs: merge
+    name: PullRequestAction
+    runs-on: ubuntu-latest
+    steps:
       - name: pull-request-action
         uses: vsoch/pull-request-action@master
         env:
