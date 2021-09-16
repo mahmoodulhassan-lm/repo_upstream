@@ -21,7 +21,8 @@ jobs:
           git fetch upstream
 
           git merge --no-edit upstream/master
-          git pull origin from_upstream > /dev/null 2>&1
+          git fetch origin from_upstream 2>/dev/null
+          git merge --no-edit origin/from_upstream
           git push --set-upstream origin from_upstream
           git checkout master
       - name: pull-request-action
