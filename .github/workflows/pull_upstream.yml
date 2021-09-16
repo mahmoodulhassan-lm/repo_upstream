@@ -17,11 +17,11 @@ jobs:
                                 # to fetch all git depth right from the start)
 
           git checkout -b from_upstream
+          git pull --no-edit origin from_upstream 2>/dev/null
           git remote add upstream https://github.com/mahmoodulhassan-rs/repo_upstream.git
           git fetch upstream
 
           git merge --no-edit upstream/master
-          # git pull --no-edit origin from_upstream 2>/dev/null
           git push --set-upstream origin from_upstream
           git checkout master
       - name: pull-request-action
