@@ -23,6 +23,7 @@ jobs:
           git merge --no-edit upstream/master
           git pull origin from_upstream > /dev/null 2>&1
           git push --set-upstream origin from_upstream
+          git checkout master
       - name: pull-request-action
         uses: peter-evans/create-pull-request@v3
         with:
